@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Timed Quiz</title>
+    <link href=”https://use.fontawesome.com/releases/v5.0.7/css/all.css” rel=”stylesheet”/>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+
+    <div class="Quiz">
+
+      <section class="Header">
+
+        <img id="tech" src="./assets/images/tech.jpg" alt="technical"/> 
+
+        <header>
+          <h1> Timed Technical Quiz</h1>
+        </header>
+     
+        <section class="SectionOne">
+         
+          <h2>How the game works:</h2>
+
+          <section class ="GameDetails">
+              <section id="Rules">
+                <p>Answer a series of randomly selected technical questions about Web Development</p>
+                <p>Get the answer correct you get 10 points!</p> 
+                <p>Answer incorrectly and you loose 10 seconds off your time</p>
+                <p>When you hit start your first question will appear and then the count down begins</p>  
+                <p>You have 60 seconds - Good Luck !!!</p>
+             </section>
+
+          </section>
+        
+          <section id="nav-score">        
+           <img id="Trophy" src="./assets/images/Trophy.jpg" alt="High Scores"> 
+           <p><a href="#scores" alt="High Scores"></a> High Scores </p>
+          </section>
+
+          <section id="CountDown">
+            <input type="image" id="start" src="./assets/images/Timer.jpg" alt="Start Timer"> 
+            <p id="CountDownTimer"></p>
+          </section>
+          
+        </section>  
+      </section>
+    </div>
+ 
+    <div class="SectionTwo">
+      <section class="question">
+        <p id="ask"></p>
+      </section>
+      <section class ="Answers">
+        <button type="button" id="a">A</button>
+        <button type="button" id="b">B</button>
+        <button type="button" id="c">C</button>
+        <button type="button" id="d">D</button>
+      </section>
+      <section id="result">
+      </section>
+    </div>  
+ 
+    <div class="SectionThree">
+      <section class="scores">
+        <section class="scoreHistory">        
+          <img id="TrophyHistory" src="./assets/images/Trophy.jpg" alt="High Scores"> 
+          <header>
+            <h3 id="h3">High Scores</h3>
+          </header>
+        </section>
+        <section class ="ScoreDetails">
+          <section class = "wrapper">
+              <ul>
+                <li class= "ResultIntitials"></li>
+                <li class="ResultScore"></li>
+              </ul>
+          </section>
+        </section>  
+      
+
+        <section class="clear">
+          <button type="button" id="clear">Clear Scores</button>
+        </section>
+           
+        <section class = "back">
+           <button type="button" id="back">Back</button>
+        </section>
+      </section>
+      
+    </div>    
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
