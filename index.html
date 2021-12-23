@@ -8,47 +8,42 @@
     <link href=”https://use.fontawesome.com/releases/v5.0.7/css/all.css” rel=”stylesheet”/>
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
-  <body>
+  <header>    
+   
+    <h1> Timed Technical Quiz</h1>
+    
+    <section class="SectionOne">
+      
+      <section id="Rules">
 
-    <div class="Quiz">
-
-      <section class="Header">
-
-        <img id="tech" src="./assets/images/tech.jpg" alt="technical"/> 
-
-        <header>
-          <h1> Timed Technical Quiz</h1>
-        </header>
-     
-        <section class="SectionOne">
-         
-          <h2>How the game works:</h2>
-
-          <section class ="GameDetails">
-              <section id="Rules">
-                <p>Answer a series of randomly selected technical questions about Web Development</p>
-                <p>Get the answer correct you get 10 points!</p> 
-                <p>Answer incorrectly and you loose 10 seconds off your time</p>
-                <p>When you hit start your first question will appear and then the count down begins</p>  
-                <p>You have 60 seconds - Good Luck !!!</p>
-             </section>
-
-          </section>
-        
-          <section id="nav-score">        
-           <img id="Trophy" src="./assets/images/Trophy.jpg" alt="High Scores"> 
-           <p><a href="#scores" alt="High Scores"></a> High Scores </p>
-          </section>
-
-          <section id="CountDown">
-            <input type="image" id="start" src="./assets/images/Timer.jpg" alt="Start Timer"> 
-            <p id="CountDownTimer"></p>
-          </section>
-          
-        </section>  
+        <h2>How the game works:</h2>
+           
+        <p>Answer a series of randomly selected technical questions about Web Development</p>
+        <p>Get the answer correct you get 10 points!</p> 
+        <p>Answer incorrectly and you loose 10 seconds off your time</p>
+        <p>When you hit start, your first question will appear and the count down begins</p>  
+        <p>You have 60 seconds - Good Luck !!!</p>
+      
       </section>
-    </div>
- 
+        
+      <section id="nav-score">  
+
+          <input type="image" id="Trophy" src="./assets/images/Trophy.jpg" alt="High Scores"> 
+          <p><a href="#scores" alt="High Scores"></a> High Scores </p>
+
+      </section>
+
+      <section id="CountDown">
+          <input type="image" id="start" src="./assets/images/Timer.jpg" alt="Start Timer"> 
+          <p id="CountDownTimer"></p>
+      </section>
+
+    </section>
+    <img id="tech" src="./assets/images/tech.jpg" alt="technical"/>
+  </header>
+
+  <body>
+  <div class="flex-body">
     <div class="SectionTwo">
       <section class="question">
         <p id="ask"></p>
@@ -64,33 +59,31 @@
     </div>  
  
     <div class="SectionThree">
+
       <section class="scores">
-        <section class="scoreHistory">        
-          <img id="TrophyHistory" src="./assets/images/Trophy.jpg" alt="High Scores"> 
-          <header>
-            <h3 id="h3">High Scores</h3>
-          </header>
+
+        <section class="scoreHistory"> 
+
+              <img id="TrophyHistory" src="./assets/images/Trophy.jpg" alt="High Scores"> 
+              <header>
+               <h3 id="h3">High Scores</h3>
+              </header>
         </section>
         <section class ="ScoreDetails">
-          <section class = "wrapper">
-              <ul>
-                <li class= "ResultIntitials"></li>
-                <li class="ResultScore"></li>
-              </ul>
-          </section>
+                <p id = "ResultIntitials"></p>
+                <p id = "ResultScore"></p>
         </section>  
-      
-
         <section class="clear">
           <button type="button" id="clear">Clear Scores</button>
         </section>
-           
+      </section>     
         <section class = "back">
            <button type="button" id="back">Back</button>
         </section>
-      </section>
+      
       
     </div>    
+  </div>
     <script src="./assets/script.js"></script>
   </body>
 </html>
