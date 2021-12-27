@@ -4,7 +4,7 @@ var selectedButton = " ";
 var countdown = document.querySelector("#CountDownTimer");    
 var startBtn = document.querySelector("#start");
 var backBtn = document.querySelector("#back");
-var resetBtn = document.querySelector("#clear")
+var resetBtn = document.querySelector("#clear");
 var selectedButtonA = document.querySelector("#a");
 var selectedButtonB = document.querySelector("#b");
 var selectedButtonC = document.querySelector("#c");
@@ -38,10 +38,13 @@ var s8 = document.querySelector("ResultScore-8");
 var s9 = document.querySelector("ResultScore-9");
 var gameScore = 0;
 var addLength = 1;
+var GetInitials;
+var GetScore;
+
 var scoreHistory = {
-    initials: [ ],
-    score: [ ]
-    }
+    initials: [],
+    score: [] 
+}
 
 
 // if you want to add a question, increment the number by 1 and add the details at the end of each data item.  
@@ -60,40 +63,44 @@ var question = {
     }
 
 function startGame(){
+
     startGame.preventDefault;
     initials = prompt("Please enter your initials");
-    secondsLeft = 6000;
+    document.getElementById("CountDownTimer").innerHTML = "Start";
     gameScore = 0;
     gameMsg = " ";
-    scoreHistory.initials = JSON.parse(localStorage.getItem("scoreHistory.initials"));
-    scoreHistory.score = JSON.parse(localStorage.getItem("scoreHistory.score"));
-    if (scoreHistory.score > 0){
-        addLength = scoreHistory.score.length};
+    console.log(localStorage.getItem("scoreHistory.initials"));
+    if (localStorage.getItem("scoreHistory.initials") != null){
+        scoreHistory.initials = JSON.parse(localStorage.getItem("scoreHistory.initials"));
+        scoreHistory.score = JSON.parse(localStorage.getItem("scoreHistory.score"));
+    }
+  //  scoreHistory = JSON.parse(localStorage.getItem("scoreHistory"));
+ //   scoreHistory.score = JSON.parse(localStorage.getItem("scoreHistory.score"));
+ //   if (scoreHistory.score > 0){
+//        addLength = scoreHistory.score.length};
     console.log("StartGame", scoreHistory);
-    console.log ("startGame", addLength);
+ //   console.log ("startGame", scoreHistory.Length);
     document.getElementById("result").innerHTML = gameMsg;
-    reduceTime();
-//    getScore();  // retrieve values from local storage
+    secondsLeft = 60;
+    startTimer();
     startQuiz();
 }
 
-function reduceTime() {
-    console.log("reduce time", secondsLeft);
-    setInterval(countDown(secondsLeft),1000);
-}
+function startTimer() {
 
-function countDown(secondsLeft){
-        
-    console.log(secondsLeft)   ; 
-    secondsLeft--;
-    console.log(secondsLeft)   ; 
-    timeEl.textContent = secondsLeft;  
-    document.getElementById("CountDownTimer").style.display = "block";
-    document.getElementById("CountDownTimer").innerHTML = timeEl.textContent;
-    if(secondsLeft < 0001){
-        clearInterval;
-        stopQuiz();
-    }    
+        // Sets interval in variable
+        var timerInterval = setInterval(function() {
+          secondsLeft--;
+          
+          countdown.textContent = secondsLeft;
+      
+          if(secondsLeft <= 0) {
+            stopQuiz();
+            clearInterval(timerInterval);
+            document.getElementById("CountDownTimer").innerHTML = "Times Up!";
+            
+          }
+        }, 1000);
 }
 
 function startQuiz(){
@@ -128,7 +135,7 @@ function checkResultA(selectedButtonA) {
     console.log("correct option",question.correct[setQuestion]);  //
     selectedButton = question.optionA[setQuestion];
     adjustTimeScore();
-    reduceTime();
+  
     startQuiz();
 }
 function checkResultB(selectedButtonB) {
@@ -141,7 +148,7 @@ function checkResultB(selectedButtonB) {
     selectedButton = question.optionB[setQuestion];
     console.log(selectedButton);
     adjustTimeScore();
-    reduceTime();
+    
     startQuiz();
 }
 
@@ -155,7 +162,7 @@ function checkResultC(selectedButtonC) {
     selectedButton = question.optionC[setQuestion];
     console.log(selectedButton);
     adjustTimeScore();
-    reduceTime();
+   
     startQuiz();
 }
 
@@ -169,7 +176,7 @@ function checkResultD(selectedButtonD) {
     selectedButton = question.optionD[setQuestion];
     console.log(selectedButton);
     adjustTimeScore();
-    reduceTime();
+   
     startQuiz();
 }
 
@@ -182,7 +189,7 @@ function adjustTimeScore(){
             gameMsg = "Well Done! That is the correct answer your score has increased by 10 points. Your total score = " + gameScore + " points";
         }
         else {
-            secondsLeft = secondsLeft - 1000;
+            secondsLeft = secondsLeft - 10;
             gameMsg = "Oops that is incorrect, the timer has been reduced by 10 seconds";
         }
         document.getElementById("result").innerHTML = gameMsg;
@@ -193,94 +200,178 @@ function stopQuiz(){
     
     addScore();
 
+    window.localStorage.setItem("scoreHistory.initials",JSON.stringify(scoreHistory.initials));    
+    window.localStorage.setItem("scoreHistory.score",JSON.stringify(scoreHistory.score));
     gameMsg = "Game Over - Your final socre is " + gameScore;
     console.log(gameMsg);
     document.getElementById("result").innerHTML = gameMsg;
 }
 
+//function addScore() {
+
+ //   var savedScore = "n";
+ //   addLength = scoreHistory.score.length;
+ //   console.log(scoreHistory);
+ //   console.log("Addscore",addLength);
+//
+  //  if (scoreHistory.score[0] > 0)
+ //   {
+ //    console.log("Addscore",addLength);
+//
+  //      for (var i = 0; i <= addLength; i++)
+//       {
+ //          console.log("Adding next score") 
+ //           
+ //          if (savedScore = "n")
+//            {
+//                if(gameScore >= scoreHistory.score[i])
+ //               {
+//                     scoreHistory.initials.splice(i,0,initials);
+ //                    scoreHistory.score.splice(i,0,gameScore);
+ //                    savedScore = "y"
+ //               }
+//            }
+ //       }
+ //       if (savedScore = "n")
+ //       {
+ //           if (addLength > 0)
+ //           {
+ //               scoreHistory.initials.push(initials) ;
+ //               scoreHistory.score.push(gameScore); 
+ //           }
+ //           else
+ //           {
+//
+ //              scoreHistory.initials = initials;
+ //              scoreHistory.score= gameScore;
+ //           }
+ //           
+ //       }  
+ //   }     
+ //   else
+ //   {
+  //      scoreHistory.initials = initials;
+ //       scoreHistory.score= gameScore;
+//   }
+
+ //  window.localStorage.setItem("scoreHistory.initials",JSON.stringify(scoreHistory.initials));    
+ //   window.localStorage.setItem("scoreHistory.score",JSON.stringify(scoreHistory.score)); 
+ //   console.log("stored"); 
+//}
+
 function addScore() {
-
+  
+    addLength = scoreHistory.score.length;
     console.log("Addscore",addLength);
+    var savedScore = "n";
 
-        for (var i = 0; i <= addLength; i++)
-        {      console.log("Adding next score")  
-             if(gameScore > scoreHistory.score[i])
-             {
-                scoreHistory.initials.splice(i,0,initials);
-                scoreHistory.score.splice(i,0,gameScore);
-            }
+        for (var i = 0; i < addLength; i++)
+        {      console.log("Adding next score");  
+            if (savedScore = "n"){
+                if(gameScore > scoreHistory.score[i])
+                 {
+                    scoreHistory.initials.splice(i,0,initials);
+                    scoreHistory.score.splice(i,0,gameScore);
+                    savedScore = "y";
+                }
+             }
         }
-    scoreHistory.initials.push(initials) ;
-    scoreHistory.score.push(gameScore);     
-    window.localStorage.setItem("scoreHistory.initials",JSON.stringify(scoreHistory.initials));    
-    window.localStorage.setItem("scoreHistory.score",JSON.stringify(scoreHistory.score)); 
+    if (savedScore == "n"){
+
+        scoreHistory.initials.push(initials);
+        scoreHistory.score.push(gameScore);     
+    }
     console.log(scoreHistory,); 
 }
 
 function getScore(){
 
     console.log("getScore");
-    console.log("scoreHistory",scoreHistory);
-
-    var arrLength = 0;
+  
+    arrLength = 0;
+ 
+    console.log(arrLength);
 
     scoreHistory.initials = JSON.parse(localStorage.getItem("scoreHistory.initials"));
     scoreHistory.score = JSON.parse(localStorage.getItem("scoreHistory.score"));
+    //scoreHistory.initials = JSON.parse(GetInitials);
+    //scoreHistory.score = JSON.parse(GetScore);
+
+    console.log("scoreHistory2", scoreHistory.initials, scoreHistory.score);
     
-    if(scoreHistory.score != null){
-        arrLength = (scoreHistory.score.length)
+    if (scoreHistory.score == null)
+    {
+        document.getElementById("ResultInitials-0").innerHTML = "No";
+        document.getElementById("ResultScore-0").innerHTML =  "Scores";
+    } 
+    else
+    {
+       
+        arrLength = scoreHistory.score.length;
+        
+    
+        console.log(arrLength);
+
+        for (var idx = 0; idx < arrLength; idx++) 
+        {
+
+            SHDinitials = scoreHistory.initials[idx];
+            SHDscore = scoreHistory.score[idx];
+            console.log(SHDinitials);
+            console.log(SHDscore);
+
+            if (idx == 0)
+            {
+                document.getElementById("ResultInitials-0").innerHTML = SHDinitials;
+                document.getElementById("ResultScore-0").innerHTML =  SHDscore;
+            }
+            if (idx == 1)
+            {
+                document.getElementById("ResultInitials-1").innerHTML = SHDinitials;
+                document.getElementById("ResultScore-1").innerHTML =  SHDscore;  
+            }
+            if (idx == 2)
+            { 
+                document.getElementById("ResultInitials-2").innerHTML = SHDinitials;
+                document.getElementById("ResultScore-2").innerHTML =  SHDscore; 
+            }
+            if (idx == 4)
+            {
+                document.getElementById("ResultInitials-3").innerHTML = SHDinitials;
+                document.getElementById("ResultScore-3").innerHTML =  SHDscore; 
+            }
+            if (idx == 4)
+            {
+                document.getElementById("ResultInitials-4").innerHTML = SHDinitials;
+                document.getElementById("ResultScore-4").innerHTML =  SHDscore; 
+            }
+            if (idx == 5)
+            {
+                document.getElementById("ResultInitials-5").innerHTML = SHDinitials;
+                document.getElementById("ResultScore-5").innerHTML =  SHDscore;
+            } 
+            if (idx == 6)
+            {
+                document.getElementById("ResultInitials-6").innerHTML = SHDinitials;
+                document.getElementById("ResultScore-6").innerHTML =  SHDscore; 
+            }
+            if (idx == 7)
+            {
+                document.getElementById("ResultInitials-7").innerHTML = SHDinitials;
+                document.getElementById("ResultScore-7").innerHTML =  SHDscore;
+            } 
+            if (idx == 8)
+            {
+                document.getElementById("ResultInitials-8").innerHTML = SHDinitials;
+                document.getElementById("ResultScore-8").innerHTML =  SHDscore; 
+            }
+            if (idx == 9)
+            {
+                document.getElementById("ResultInitials-9").innerHTML = SHDinitials;
+                document.getElementById("ResultScore-9").innerHTML =  SHDscore;
+            }
+        }
     }
-    console.log (arrLength);
-
-    for (var i=0; i < arrLength; i++) {
-
-        SHDinitials = scoreHistory.initials[i];
-        SHDscore = scoreHistory.score[i];
-        console.log(SHDinitials);
-        console.log(SHDscore);
-
-        if (i == 0){
-            document.getElementById("ResultInitials-0").innerHTML = SHDinitials;
-            document.getElementById("ResultScore-0").innerHTML =  SHDscore;
-        }
-        if (i == 1){
-            document.getElementById("ResultInitials-1").innerHTML = SHDinitials;
-            document.getElementById("ResultScore-1").innerHTML =  SHDscore;  
-        }
-        if (i == 2){ 
-            document.getElementById("ResultInitials-2").innerHTML = SHDinitials;
-            document.getElementById("ResultScore-2").innerHTML =  SHDscore; 
-        }
-        if (i == 4){
-            document.getElementById("ResultInitials-3").innerHTML = SHDinitials;
-            document.getElementById("ResultScore-3").innerHTML =  SHDscore; 
-        }
-        if (i == 4){
-            document.getElementById("ResultInitials-4").innerHTML = SHDinitials;
-            document.getElementById("ResultScore-4").innerHTML =  SHDscore; 
-        }
-        if (i == 5){
-            document.getElementById("ResultInitials-5").innerHTML = SHDinitials;
-            document.getElementById("ResultScore-5").innerHTML =  SHDscore;
-        } 
-        if (i == 6){
-            document.getElementById("ResultInitials-6").innerHTML = SHDinitials;
-            document.getElementById("ResultScore-6").innerHTML =  SHDscore; 
-        }
-        if (i == 7){
-            document.getElementById("ResultInitials-7").innerHTML = SHDinitials;
-            document.getElementById("ResultScore-7").innerHTML =  SHDscore;
-        } 
-        if (i == 8){
-            document.getElementById("ResultInitials-8").innerHTML = SHDinitials;
-            document.getElementById("ResultScore-8").innerHTML =  SHDscore; 
-        }
-        if (i == 9){
-            document.getElementById("ResultInitials-9").innerHTML = SHDinitials;
-            document.getElementById("ResultScore-9").innerHTML =  SHDscore;
-        }
-    }
-  
 }
 
 function resetScore() {
@@ -288,6 +379,7 @@ function resetScore() {
     var check = confirm("Are you sure, this will clear the scorboard of all scores?");
     if (check != null){
         localStorage.clear(scoreHistory);
+      
     }
 }
 
