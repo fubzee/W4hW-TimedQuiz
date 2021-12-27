@@ -6,14 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Timed Quiz</title>
     <link href=”https://use.fontawesome.com/releases/v5.0.7/css/all.css” rel=”stylesheet”/>
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./Assets/style.css" />
   </head>
   <header>    
    
     <h1> Timed Technical Quiz</h1>
     
-    <section class="SectionOne">
-      
+    <section class="SectionOne"><a href="#SectionOneLink"></a>  
       <section id="Rules">
 
         <h2>How the game works:</h2>
@@ -43,47 +42,79 @@
   </header>
 
   <body>
-  <div class="flex-body">
-    <div class="SectionTwo">
-      <section class="question">
-        <p id="ask"></p>
-      </section>
-      <section class ="Answers">
-        <button type="button" id="a">A</button>
-        <button type="button" id="b">B</button>
-        <button type="button" id="c">C</button>
-        <button type="button" id="d">D</button>
-      </section>
-      <section id="result">
-      </section>
-    </div>  
+    <div class="flex-body">
+      <div class="SectionTwo">
+        <section class="question">
+          <p id="ask"></p>
+        </section>
+        <section class ="answers">
+          <button type="button" id="a">A</button>
+          <button type="button" id="b">B</button>
+          <button type="button" id="c">C</button>
+          <button type="button" id="d">D</button>
+        </section>
+          <section id="result">
+        </section>
+      </div>  
  
-    <div class="SectionThree">
+      <div class="SectionThree"><a href="#SectionThreeLink"></a>
+        <section class="scores">
 
-      <section class="scores">
+          <section class="scoreHistory">   
 
-        <section class="scoreHistory"> 
+            <section class="SH-head">
+               <img id="TrophyHistory" src="./assets/images/Trophy.jpg" alt="High Scores"> 
+               <header>
+                  <h3 id="h3">Top 10 High Scores</h3>
+                </header>
+            </section>
+        
+            <section class ="SH-details">
+              <section class = "SHD-head">
+                <p id="SHD-init"> Initials </p>
+                <p id="SHD-score"> Scores </p>
+              </section>
+              <Section class="SHD-Details">
+                <section class = "SHD-initials">
+                  <li id = "ResultInitials-0"></li>
+                  <li id = "ResultInitials-1"></li>
+                  <li id = "ResultInitials-2"></li>
+                  <li id = "ResultInitials-3"></li>
+                  <li id = "ResultInitials-4"></li>
+                  <li id = "ResultInitials-5"></li>
+                  <li id = "ResultInitials-6"></li>
+                  <li id = "ResultInitials-7"></li>
+                  <li id = "ResultInitials-8"></li>
+                  <li id = "ResultInitials-9"></li>
+                </section>
+               <section class = "SHD-score">
+                 <li id = "ResultScore-0"></li>
+                 <li id = "ResultScore-1"></li>
+                 <li id = "ResultScore-2"></li>
+                 <li id = "ResultScore-3"></li>
+                 <li id = "ResultScore-4"></li>
+                 <li id = "ResultScore-5"></li>
+                 <li id = "ResultScore-6"></li>
+                 <li id = "ResultScore-7"></li>
+                 <li id = "ResultScore-8"></li>
+                 <li id = "ResultScore-9"></li>
+               </section>
+              </Section>
+            </section>  
 
-              <img id="TrophyHistory" src="./assets/images/Trophy.jpg" alt="High Scores"> 
-              <header>
-               <h3 id="h3">High Scores</h3>
-              </header>
-        </section>
-        <section class ="ScoreDetails">
-                <p id = "ResultIntitials"></p>
-                <p id = "ResultScore"></p>
-        </section>  
-        <section class="clear">
-          <button type="button" id="clear">Clear Scores</button>
-        </section>
-      </section>     
+            <section class="clear">
+              <button type="button" id="clear">Clear Scores</button>
+            </section>
+          </section>
+           
         <section class = "back">
-           <button type="button" id="back">Back</button>
-        </section>
-      
+          <button type="button" id="back">Back</button>
+         </section>
+      </section>
       
     </div>    
-  </div>
-    <script src="./assets/script.js"></script>
+  
+ 
+  <script src="./assets/script.js"></script>
   </body>
 </html>
