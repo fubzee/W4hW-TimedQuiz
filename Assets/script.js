@@ -49,41 +49,52 @@ var scoreHistory = {
 
 // if you want to add a question, increment the number by 1 and add the details at the end of each data item.  
 var question = {
-        number: ["0", "1","2","3","4"],
+        number: ["0","1","2","3","4","5","6","7","8","9","10","11","12"],
         ask: ["Which is not a JavaScript Data type?",
-              " 'This' refers to the ________ from where it is called", 
-              "Which is not a looping structure in JavaScript?",
-              "Which item is not a type of pop up box in Java Script?",
-              "Which of these are not a valid Boolean Operator in JavaScript?"],
-        optionA: ["Boolean","Class","For","Alert","&!"],
-        optionB: ["Object","Object","Do-while","Confirm","||"],
-        optionC: ["Class","Element","When","Prompt","&&"],
-        optionD: ["Number","Document","While","Display","!&"],
-        correct: ["Class","Object","When","Display","&!"],
+            " 'This' refers to the ________ from where it is called?", 
+            "Which is not a looping structure in JavaScript?",
+            "Which item is not a type of pop up box in Java Script?",
+            "Which of these are not a valid Boolean Operator in JavaScript?",
+            "Which is not a HTML Semantic Element?",
+            "Which one is not a Flexbox property?",
+            "Which HTML element is a container for data about data?",
+            "JSON arrays are written inside ______ brackets?",
+            "JSON objects are written inside _______ brackets?",
+            "Which is not a valid Javascript Number Method?",
+            "What symbol indicates code from the Javascript library - Jquery?",
+            "What 'symbol' or characters indicates a reference to the 'UTF-8' character set?"],
+        optionA: ["Boolean","Class","For","Alert","'&!'","form","Display","head","'{}'","'<>'","toString()","'@'","'#&'"],
+        optionB: ["Object","Object","Do-while","Confirm","'||'","div","justify-content","class","'[]'","'[]'","toFixed","'/*'","'*&'"],
+        optionC: ["Class","Element","When","Prompt","'&&'","section","align-content","script","'()'","'{}'","toPrecision","'--'","'&#'"],
+        optionD: ["Number","Document","While","Display","'!&'","article","order","Inline","'<>'","'()'","toRandom","'$'","'#@'"],
+        correct: ["Class","Object","When","Display","'&!'","div","order","head","'[]'","'{}'","toRandom","'$'","'&#'"],
     }
 
 function startGame(){
 
     startGame.preventDefault;
+    document.getElementById("a").disabled = true;
+    document.getElementById("b").disabled = true;
+    document.getElementById("c").disabled = true;
+    document.getElementById("d").disabled = true;
     initials = prompt("Please enter your initials");
-    document.getElementById("CountDownTimer").innerHTML = "Start";
-    gameScore = 0;
-    gameMsg = " ";
-    console.log(localStorage.getItem("scoreHistory.initials"));
-    if (localStorage.getItem("scoreHistory.initials") != null){
-        scoreHistory.initials = JSON.parse(localStorage.getItem("scoreHistory.initials"));
-        scoreHistory.score = JSON.parse(localStorage.getItem("scoreHistory.score"));
+    if (initials == "" || initials == null){
+        stopQuiz;
+    } else{
+        document.getElementById("CountDownTimer").innerHTML = "Start";
+        gameScore = 0;
+        gameMsg = " ";
+        console.log(localStorage.getItem("scoreHistory.initials"));
+        if (localStorage.getItem("scoreHistory.initials") != null){
+            scoreHistory.initials = JSON.parse(localStorage.getItem("scoreHistory.initials"));
+            scoreHistory.score = JSON.parse(localStorage.getItem("scoreHistory.score"));
+        }
+        console.log("StartGame", scoreHistory);
+        document.getElementById("result").innerHTML = gameMsg;
+        secondsLeft = 60;
+        startTimer();
+        startQuiz();
     }
-  //  scoreHistory = JSON.parse(localStorage.getItem("scoreHistory"));
- //   scoreHistory.score = JSON.parse(localStorage.getItem("scoreHistory.score"));
- //   if (scoreHistory.score > 0){
-//        addLength = scoreHistory.score.length};
-    console.log("StartGame", scoreHistory);
- //   console.log ("startGame", scoreHistory.Length);
-    document.getElementById("result").innerHTML = gameMsg;
-    secondsLeft = 60;
-    startTimer();
-    startQuiz();
 }
 
 function startTimer() {
@@ -105,6 +116,11 @@ function startTimer() {
 
 function startQuiz(){
     
+    document.getElementById("a").disabled = false;
+    document.getElementById("b").disabled = false;
+    document.getElementById("c").disabled = false;
+    document.getElementById("d").disabled = false;
+
     loadQuestion(); 
 }
 
@@ -197,84 +213,39 @@ function adjustTimeScore(){
 }
 
 function stopQuiz(){
+    document.getElementById("a").disabled = true;
+    document.getElementById("b").disabled = true;
+    document.getElementById("c").disabled = true;
+    document.getElementById("d").disabled = true;
     
     addScore();
 
     window.localStorage.setItem("scoreHistory.initials",JSON.stringify(scoreHistory.initials));    
     window.localStorage.setItem("scoreHistory.score",JSON.stringify(scoreHistory.score));
-    gameMsg = "Game Over - Your final socre is " + gameScore;
+    gameMsg = "Game Over - Your final score is " + gameScore;
     console.log(gameMsg);
     document.getElementById("result").innerHTML = gameMsg;
 }
 
-//function addScore() {
-
- //   var savedScore = "n";
- //   addLength = scoreHistory.score.length;
- //   console.log(scoreHistory);
- //   console.log("Addscore",addLength);
-//
-  //  if (scoreHistory.score[0] > 0)
- //   {
- //    console.log("Addscore",addLength);
-//
-  //      for (var i = 0; i <= addLength; i++)
-//       {
- //          console.log("Adding next score") 
- //           
- //          if (savedScore = "n")
-//            {
-//                if(gameScore >= scoreHistory.score[i])
- //               {
-//                     scoreHistory.initials.splice(i,0,initials);
- //                    scoreHistory.score.splice(i,0,gameScore);
- //                    savedScore = "y"
- //               }
-//            }
- //       }
- //       if (savedScore = "n")
- //       {
- //           if (addLength > 0)
- //           {
- //               scoreHistory.initials.push(initials) ;
- //               scoreHistory.score.push(gameScore); 
- //           }
- //           else
- //           {
-//
- //              scoreHistory.initials = initials;
- //              scoreHistory.score= gameScore;
- //           }
- //           
- //       }  
- //   }     
- //   else
- //   {
-  //      scoreHistory.initials = initials;
- //       scoreHistory.score= gameScore;
-//   }
-
- //  window.localStorage.setItem("scoreHistory.initials",JSON.stringify(scoreHistory.initials));    
- //   window.localStorage.setItem("scoreHistory.score",JSON.stringify(scoreHistory.score)); 
- //   console.log("stored"); 
-//}
-
 function addScore() {
-  
+    addLength=0;
     addLength = scoreHistory.score.length;
     console.log("Addscore",addLength);
     var savedScore = "n";
 
         for (var i = 0; i < addLength; i++)
-        {      console.log("Adding next score");  
-            if (savedScore = "n"){
-                if(gameScore > scoreHistory.score[i])
-                 {
+        {      
+        console.log("Adding next score");  
+
+            if (savedScore == "n")
+            {
+                if(gameScore == scoreHistory.score[i] || gameScore > scoreHistory.score[i] )
+                {
                     scoreHistory.initials.splice(i,0,initials);
                     scoreHistory.score.splice(i,0,gameScore);
                     savedScore = "y";
                 }
-             }
+            }
         }
     if (savedScore == "n"){
 
@@ -294,9 +265,6 @@ function getScore(){
 
     scoreHistory.initials = JSON.parse(localStorage.getItem("scoreHistory.initials"));
     scoreHistory.score = JSON.parse(localStorage.getItem("scoreHistory.score"));
-    //scoreHistory.initials = JSON.parse(GetInitials);
-    //scoreHistory.score = JSON.parse(GetScore);
-
     console.log("scoreHistory2", scoreHistory.initials, scoreHistory.score);
     
     if (scoreHistory.score == null)
@@ -376,12 +344,18 @@ function getScore(){
 
 function resetScore() {
     
-    var check = confirm("Are you sure, this will clear the scorboard of all scores?");
+    var check = confirm("Are you sure, this will clear the game and scoreboard of ALL scores?");
     if (check != null){
-        localStorage.clear(scoreHistory);
-      
+        localStorage.clear(scoreHistory.initials);
+        localStorage.clear(scoreHistory.score);
     }
-}
+    scoreHistory.initials = "";
+    scoreHistory.score = "";   
+    document.getElementById("ResultInitials-0").innerHTML = "No";
+    document.getElementById("ResultScore-0").innerHTML =  "Scores";
+     
+    }
+
 
 function getResult(){
 
@@ -405,7 +379,7 @@ function gameReturn(){
 document.getElementById("start").addEventListener("click",function(){startGame()});
 document.getElementById("clear").addEventListener("click",function(){resetScore()});
 document.getElementById("back").addEventListener("click",function(){gameReturn()});
-document.getElementById("Trophy").addEventListener("click",function(){getResult()});
+document.getElementById("trophy").addEventListener("click",function(){getResult()});
 document.getElementById("a").addEventListener("click",function(){checkResultA(selectedButtonA)}); 
 document.getElementById("b").addEventListener("click",function(){checkResultB(selectedButtonB)});
 document.getElementById("c").addEventListener("click",function(){checkResultC(selectedButtonC)});
