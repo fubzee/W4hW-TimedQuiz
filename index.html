@@ -7,113 +7,122 @@
     <title>Timed Quiz</title>
     <link rel="stylesheet" href="./Assets/style.css" />
   </head>
-  <header>    
-   
-    <h1> Timed Technical Quiz</h1>
-    
-    <section class="SectionOne"><a href="#SectionOneLink"></a>  
-      <section id="Rules">
+  <body>
 
-        <h2>How the game works:</h2>
-           
-        <p>Answer a series of randomly selected technical questions about Web Development</p>
-        <p>Get the answer correct you get 10 points!</p> 
-        <p>Answer incorrectly and you loose 10 seconds off your time</p>
-        <p>When you hit start, your first question will appear and the count down begins</p>  
-        <p>You have 60 seconds - Good Luck !!!</p>
+    <section class = main-body>
+
+      <section class= "header-section">
       
+        <h1> Timed Technical Quiz</h1> 
       </section>
+      
+      <section class="SectionOne"><a href="#SectionOneLink"></a>  
         
-      <section id="nav-score">  
+        <section id="Rules">
+
+          <h2>How the game works:</h2>
+           
+          <p>Answer a series of randomly selected technical questions about Web Development</p>
+          <p>Get the answer correct you get 10 points!</p> 
+          <p>Answer incorrectly and you loose 10 seconds off your time</p>
+          <p>When you hit start, your first question will appear and the count down begins</p>  
+          <p>You have 60 seconds - Good Luck !!!</p>
+      
+        </section>
+        
+        <section id="nav-score">  
 
           <input type = "image" class="imgBtn" id="trophy" src="./Assets/Images/Trophy.jpg" alt="High Scores"/>
           <p><a href="#scores" alt="High Scores"></a> High Scores</p>
 
-      </section>
+        </section>
 
-      <section id="CountDown">
+        <section id="CountDown">
+
           <input type="image" class="imgBtn" id="start" src="./Assets/Images/Timer.jpg" alt="Start Timer"/>
           <p id="CountDownTimer"></p>
+      
+        </section>
+
       </section>
 
-    </section>
-    <img id="tech" src="./Assets/Images/tech.jpg" alt="technical"/>
-  </header>
+      <img id="tech" src="./Assets/Images/tech.jpg" alt="technical"/>
 
-  <body>
-    <div class="flex-body">
-      <div class="SectionTwo">
-        <section class="question">
-          <p id="ask"></p>
-        </section>
-        <section class ="answers">
-          <button type="button" id="a">A</button>
-          <button type="button" id="b">B</button>
-          <button type="button" id="c">C</button>
-          <button type="button" id="d">D</button>
-        </section>
+      </section>
+
+      <div class="flex-body">
+        <div class="SectionTwo">
+          <section class="question">
+            <p id="ask"></p>
+          </section>
+          <section class ="answers">
+            <button type="button" id="a">A</button>
+            <button type="button" id="b">B</button>
+            <button type="button" id="c">C</button>
+            <button type="button" id="d">D</button>
+          </section>
           <section id="result">
-        </section>
-      </div>  
+          </section>
+        </div>  
  
-      <div class="SectionThree"><a href="#SectionThreeLink"></a>
-        <section class="scores">
+        <div class="SectionThree"><a href="#SectionThreeLink"></a>
+          <section class="scores">
 
-          <section class="scoreHistory">   
+            <section class="scoreHistory">   
 
-            <section class="SH-head">
-               <img id="TrophyHistory" src="./Assets/Images/Trophy.jpg" alt="High Scores"> 
-               <header>
+              <section class="SH-head">
+                <img id="TrophyHistory" src="./Assets/Images/Trophy.jpg" alt="High Scores"> 
+                <header>
                   <h3 id="h3">Top 10 High Scores</h3>
                 </header>
-            </section>
-        
-            <section class ="SH-details">
-              <section class = "SHD-head">
-                <p id="SHD-init"> Initials </p>
-                <p id="SHD-score"> Scores </p>
-              </section>
-              <Section class="SHD-Details">
-                <section class = "SHD-initials">
-                  <li id = "ResultInitials-0"></li>
-                  <li id = "ResultInitials-1"></li>
-                  <li id = "ResultInitials-2"></li>
-                  <li id = "ResultInitials-3"></li>
-                  <li id = "ResultInitials-4"></li>
-                  <li id = "ResultInitials-5"></li>
-                  <li id = "ResultInitials-6"></li>
-                  <li id = "ResultInitials-7"></li>
-                  <li id = "ResultInitials-8"></li>
-                  <li id = "ResultInitials-9"></li>
-                </section>
-               <section class = "SHD-score">
-                 <li id = "ResultScore-0"></li>
-                 <li id = "ResultScore-1"></li>
-                 <li id = "ResultScore-2"></li>
-                 <li id = "ResultScore-3"></li>
-                 <li id = "ResultScore-4"></li>
-                 <li id = "ResultScore-5"></li>
-                 <li id = "ResultScore-6"></li>
-                 <li id = "ResultScore-7"></li>
-                 <li id = "ResultScore-8"></li>
-                 <li id = "ResultScore-9"></li>
                </section>
-              </Section>
-            </section>  
-
-            <section class="clear">
-              <button type="button" id="clear">Clear Scores</button>
+        
+              <section class ="SH-details">
+                <section class = "SHD-head">
+                  <p id="SHD-init"> Initials </p>
+                  <p id="SHD-score"> Scores </p>
+                </section>
+                <Section class="SHD-Details">
+                  <section class = "SHD-initials">
+                    <li id = "ResultInitials-0"></li>
+                    <li id = "ResultInitials-1"></li>
+                    <li id = "ResultInitials-2"></li>
+                    <li id = "ResultInitials-3"></li>
+                    <li id = "ResultInitials-4"></li>
+                    <li id = "ResultInitials-5"></li>
+                    <li id = "ResultInitials-6"></li>
+                    <li id = "ResultInitials-7"></li>
+                    <li id = "ResultInitials-8"></li>
+                    <li id = "ResultInitials-9"></li>
+                  </section>
+                  <section class = "SHD-score">
+                    <li id = "ResultScore-0"></li>
+                    <li id = "ResultScore-1"></li>
+                    <li id = "ResultScore-2"></li>
+                    <li id = "ResultScore-3"></li>
+                    <li id = "ResultScore-4"></li>
+                    <li id = "ResultScore-5"></li>
+                    <li id = "ResultScore-6"></li>
+                    <li id = "ResultScore-7"></li>
+                    <li id = "ResultScore-8"></li>
+                    <li id = "ResultScore-9"></li>
+                  </section>
+                </Section>
+              </section>  
+            
+              <section class="clear">
+                <button type="button" id="clear">Clear Scores</button>
+              </section>
             </section>
-          </section>
            
-        <section class = "back">
-          <button type="button" id="back">Back</button>
-         </section>
-      </section>
-      
-    </div>    
-  
- 
-  <script src="./Assets/script.js"></script>
+          <section class = "back">
+            <button type="button" id="back">Back</button>
+          </section>
+        </section>
+      </div>  
+    </section>  
   </body>
+  
+  <script src="./Assets/script.js"></script>
+ 
 </html>

@@ -40,6 +40,19 @@ h1 {
   font-family: var(--allfont-family);
 }
 
+.main-body{
+
+  display:flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.header-section{
+
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
 .SectionOne {
 
   z-index: 1;
