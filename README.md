@@ -14,8 +14,3 @@ When the timer runs out your score is automatically added to to the score leader
 
 There is an option to clear the scores from the leader board and an option to return you to the game for another round of questions.
 
-Issues:
-There are a number of small issues (bugs) that still needs to be worked on 
-- some scores are duplicated when they are getting added to the scoreboard
-- the application renders well on the standard browser but needs refinement on smaller displays
-- code clean-up - add comments and remove commented out code 
