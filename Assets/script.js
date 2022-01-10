@@ -228,8 +228,14 @@ function stopQuiz(){
 }
 
 function addScore() {
-    addLength=0;
-    addLength = scoreHistory.score.length;
+    
+    if (localStorage.getItem("scoreHistory.initials") != null){
+        addLength = scoreHistory.score.length;
+    }
+    else{
+        addLength=0;
+    }
+            
     console.log("Addscore",addLength);
     var savedScore = "n";
 
