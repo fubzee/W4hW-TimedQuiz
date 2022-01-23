@@ -151,7 +151,7 @@ function checkResultA(selectedButtonA) {
     console.log("correct option",question.correct[setQuestion]);  //
     selectedButton = question.optionA[setQuestion];
     adjustTimeScore();
-  
+    
     startQuiz();
 }
 function checkResultB(selectedButtonB) {
@@ -192,7 +192,7 @@ function checkResultD(selectedButtonD) {
     selectedButton = question.optionD[setQuestion];
     console.log(selectedButton);
     adjustTimeScore();
-   
+    
     startQuiz();
 }
 
@@ -200,16 +200,23 @@ function adjustTimeScore(){
     console.log(selectedButton);
     console.log(question.correct[setQuestion]);
    
-        if (selectedButton === question.correct[setQuestion]){
+        if (selectedButton === question.correct[setQuestion])
+        {
             gameScore = gameScore + 10;
             gameMsg = "Well Done! That is the correct answer your score has increased by 10 points. Your total score = " + gameScore + " points";
         }
-        else {
+        else
+        {
             secondsLeft = secondsLeft - 10;
             gameMsg = "Oops that is incorrect, the timer has been reduced by 10 seconds";
         }
         document.getElementById("result").innerHTML = gameMsg;
         console.log(gameMsg);
+        if(secondsLeft <= 0) 
+        {
+            stopQuiz();
+            document.getElementById("CountDownTimer").innerHTML = "Times Up!";
+        }
 }
 
 function stopQuiz(){
